@@ -11,6 +11,7 @@ import UIKit
 class PhotoCell: UICollectionViewCell {
     
     @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     
     override func awakeFromNib() {
@@ -26,6 +27,8 @@ class PhotoCell: UICollectionViewCell {
     }
     
     func updateCell(with image: UIImage?) {
+        spinner.stopAnimating()
+        spinner.isHidden = true
         if let imageToDisplay = image {
             photoImageView.image = imageToDisplay
         } else {
